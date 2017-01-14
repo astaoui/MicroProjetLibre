@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="projectMicroServicesApp.calender.detail.title">Calender</span> {{vm.calender.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="projectMicroServicesApp.calender.title">Title</span></dt>
+        <dd>
+            <span>{{vm.calender.title}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.calender.dateBegining">Date Begining</span></dt>
+        <dd>
+            <span>{{vm.calender.dateBegining | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.calender.dateEnding">Date Ending</span></dt>
+        <dd>
+            <span>{{vm.calender.dateEnding | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.calender.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.calender.project.id})">{{vm.calender.project.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="calender-detail.edit({id:vm.calender.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

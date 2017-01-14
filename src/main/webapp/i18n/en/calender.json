@@ -1,0 +1,26 @@
+{
+    "projectMicroServicesApp": {
+        "calender" : {
+            "home": {
+                "title": "Calenders",
+                "createLabel": "Create a new Calender",
+                "createOrEditLabel": "Create or edit a Calender",
+                "search": "Search for Calender"
+            },
+            "created": "A new Calender is created with identifier {{ param }}",
+            "updated": "A Calender is updated with identifier {{ param }}",
+            "deleted": "A Calender is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Calender {{ id }}?"
+            },
+            "detail": {
+                "title": "Calender"
+            },
+            "title": "Title",
+            "dateBegining": "Date Begining",
+            "dateEnding": "Date Ending",
+            "project": "Project",
+            "meeting": "Meeting"
+        }
+    }
+}

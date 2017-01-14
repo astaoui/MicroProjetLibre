@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCalenderLabel"
+            data-translate="projectMicroServicesApp.calender.home.createOrEditLabel">Create or edit a Calender</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.calender.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   ng-model="vm.calender.id" readonly/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.calender.title"
+                   for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                   ng-model="vm.calender.title"
+                   required/>
+            <div ng-show="editForm.title.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.title.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.calender.dateBegining"
+                   for="field_dateBegining">Date Begining</label>
+            <div class="input-group">
+                <input id="field_dateBegining" type="text" class="form-control" name="dateBegining"
+                       uib-datepicker-popup="{{dateformat}}" ng-model="vm.calender.dateBegining"
+                       is-open="vm.datePickerOpenStatus.dateBegining"
+                       />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateBegining')"><i
+                            class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+            </div>
+            <div ng-show="editForm.dateBegining.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.dateBegining.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.calender.dateEnding"
+                   for="field_dateEnding">Date Ending</label>
+            <div class="input-group">
+                <input id="field_dateEnding" type="text" class="form-control" name="dateEnding"
+                       uib-datepicker-popup="{{dateformat}}" ng-model="vm.calender.dateEnding"
+                       is-open="vm.datePickerOpenStatus.dateEnding"
+                />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateEnding')"><i
+                            class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="projectMicroServicesApp.calender.project" for="field_project">Project</label>
+            <select class="form-control" id="field_project" name="project" ng-model="vm.calender.project"
+                    ng-options="project as project.name for project in vm.projects | orderBy:'id' track by project.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+            data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

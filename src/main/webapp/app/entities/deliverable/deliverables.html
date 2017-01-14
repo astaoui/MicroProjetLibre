@@ -1,0 +1,66 @@
+<div>
+    <h2 data-translate="projectMicroServicesApp.deliverable.home.title">Deliverables</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid" has-authority="ROLE_ADMIN">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="deliverable.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="projectMicroServicesApp.deliverable.home.createLabel">
+                        Create new Deliverable
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="projectMicroServicesApp.deliverable.name">Name</span></th>
+                    <th><span data-translate="projectMicroServicesApp.deliverable.description">Description</span></th>
+                    <th><span data-translate="projectMicroServicesApp.deliverable.dateBegining">Date Begining</span></th>
+                    <th><span data-translate="projectMicroServicesApp.deliverable.dateEnding">Date Ending</span></th>
+                    <th><span data-translate="projectMicroServicesApp.deliverable.project">Project</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="deliverable in vm.deliverables track by deliverable.id">
+                    <td><a ui-sref="deliverable-detail({id:deliverable.id})">{{deliverable.id}}</a></td>
+                    <td>{{deliverable.name}}</td>
+                    <td>{{deliverable.description}}</td>
+                        <td>{{deliverable.dateBegining | date:'mediumDate'}}</td>
+                        <td>{{deliverable.dateEnding | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="project-detail({id:deliverable.project.id})">{{deliverable.project.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="deliverable-detail({id:deliverable.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit" has-authority="ROLE_ADMIN"
+                                    ui-sref="deliverable.edit({id:deliverable.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit" has-authority="ROLE_ADMIN"
+                                    ui-sref="deliverable.delete({id:deliverable.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

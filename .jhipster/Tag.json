@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tag"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "documentation",
+            "otherEntityName": "documentation",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "tag"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170108234852",
+    "entityTableName": "tag",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

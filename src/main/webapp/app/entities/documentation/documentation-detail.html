@@ -1,0 +1,48 @@
+
+<div>
+    <h2><span data-translate="projectMicroServicesApp.documentation.detail.title">Documentation</span> {{vm.documentation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="projectMicroServicesApp.documentation.title">Title</span></dt>
+        <dd>
+            <span>{{vm.documentation.title}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.documentation.description">Description</span></dt>
+        <dd>
+            <span>{{vm.documentation.description}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.documentation.file">File</span></dt>
+        <dd>
+            <div ng-if="vm.documentation.file">
+                <a ng-click="vm.openFile(vm.documentation.fileContentType, vm.documentation.file)" data-translate="entity.action.open">open</a>
+                {{vm.documentation.fileContentType}}, {{vm.byteSize(vm.documentation.file)}}
+            </div>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.documentation.tag">Tag</span></dt>
+        <dd>
+            <span ng-repeat="tag in vm.documentation.tags">
+                <a ui-sref="tag-detail({id: tag.id})">{{tag.title}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.documentation.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.documentation.project.id})">{{vm.documentation.project.name}}</a>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.documentation.deliverable">Deliverable</span></dt>
+        <dd>
+            <a ui-sref="deliverable-detail({id:vm.documentation.deliverable.id})">{{vm.documentation.deliverable.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="documentation-detail.edit({id:vm.documentation.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

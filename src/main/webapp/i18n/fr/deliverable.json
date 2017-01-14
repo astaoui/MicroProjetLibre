@@ -1,0 +1,27 @@
+{
+    "projectMicroServicesApp": {
+        "deliverable" : {
+            "home": {
+                "title": "Deliverables",
+                "createLabel": "Créer un nouveau Deliverable",
+                "createOrEditLabel": "Créer ou éditer un Deliverable",
+                "search": "Recherche pour Deliverable"
+            },
+            "created": "Un nouveau Deliverable a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Deliverable avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Deliverable avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Deliverable {{ id }} ?"
+            },
+            "detail": {
+                "title": "Deliverable"
+            },
+            "name": "Name",
+            "description": "Description",
+            "dateBegining": "Date Begining",
+            "dateEnding": "Date Ending",
+            "documentation": "Documentation",
+            "project": "Project"
+        }
+    }
+}

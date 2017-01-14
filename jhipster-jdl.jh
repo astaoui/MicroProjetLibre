@@ -1,0 +1,93 @@
+
+
+entity Project {
+	name String required,
+    projectType ProjectTypes required,
+    description String,
+    dateBegining LocalDate required,
+    dateEnding LocalDate required
+    
+}
+entity Deliverable {
+	name String required,
+    description String,
+    dateBegining LocalDate required,
+    dateEnding LocalDate
+    
+}
+
+
+
+enum ProjectTypes {
+    PFE, PFA, DOCTORANT
+}
+
+
+
+entity Calender {
+	title  String required,
+	dateBegining LocalDate required,
+    dateEnding LocalDate
+	
+}
+entity Documentation {
+	title String required,
+    description String,
+    file AnyBlob 
+}
+entity Meeting{
+	description String,
+	date  ZonedDateTime required
+}
+entity Notification{
+	description String,
+	date  ZonedDateTime required
+}
+entity Tag {
+	title String required 
+}
+
+relationship OneToOne {
+   Calender{project(name)}to Project{calender}
+}
+
+relationship OneToMany {
+  Calender{meeting} to Meeting{Calender}
+}
+
+relationship OneToMany {
+  Project{documentation} to Documentation{project(name)}
+}
+
+relationship OneToMany {
+  Deliverable{documentation} to Documentation{deliverable(name)}
+}
+
+relationship ManyToMany {
+	Project{tag(title)} to Tag{project}
+}
+
+relationship ManyToMany {
+	Documentation{tag(title)} to Tag{documentation}
+}
+
+
+relationship OneToMany {
+	Project{deliverable} to Deliverable{project(name)}
+}
+
+
+relationship ManyToMany {
+	Project{user(login)} to User
+}
+
+
+
+
+// paginate * with pagination
+// dto * with mapstruct
+
+// Set service options to all except few
+// service all with serviceImpl 
+// Set an angular suffix
+// angularSuffix * with mySuffix

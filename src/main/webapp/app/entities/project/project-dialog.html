@@ -1,0 +1,99 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myProjectLabel" data-translate="projectMicroServicesApp.project.home.createOrEditLabel">Create or edit a Project</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.project.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.project.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.project.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.project.name"
+                    required />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.project.projectType" for="field_projectType">Project Type</label>
+            <select class="form-control" name="projectType" ng-model="vm.project.projectType" id="field_projectType" required>
+                <option value="PFE" data-translate="projectMicroServicesApp.ProjectTypes.PFE">PFE</option>
+                <option value="PFA" data-translate="projectMicroServicesApp.ProjectTypes.PFA">PFA</option>
+                <option value="DOCTORANT" data-translate="projectMicroServicesApp.ProjectTypes.DOCTORANT">DOCTORANT</option>
+            </select>
+            <div ng-show="editForm.projectType.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.projectType.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.project.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.project.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.project.dateBegining" for="field_dateBegining">Date Begining</label>
+                <div class="input-group">
+                    <input id="field_dateBegining" type="text" class="form-control" name="dateBegining" uib-datepicker-popup="{{dateformat}}" ng-model="vm.project.dateBegining" is-open="vm.datePickerOpenStatus.dateBegining"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateBegining')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.dateBegining.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dateBegining.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="projectMicroServicesApp.project.dateEnding" for="field_dateEnding">Date Ending</label>
+                <div class="input-group">
+                    <input id="field_dateEnding" type="text" class="form-control" name="dateEnding" uib-datepicker-popup="{{dateformat}}" ng-model="vm.project.dateEnding" is-open="vm.datePickerOpenStatus.dateEnding"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateEnding')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.dateEnding.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dateEnding.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="projectMicroServicesApp.project.tag" for="field_tag">Tag</label>
+            <select class="form-control" id="field_tag" multiple name="tag" ng-model="vm.project.tags" ng-options="tag as tag.title for tag in vm.tags track by tag.id"></select>
+        </div>
+        <div class="form-group">
+            <label data-translate="projectMicroServicesApp.project.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" multiple name="user" ng-model="vm.project.users"
+                    ng-options="user as user.login for user in vm.users track by user.login"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

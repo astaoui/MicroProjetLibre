@@ -1,0 +1,10 @@
+{
+    "projectMicroServicesApp": {
+        "ProjectTypes" : {
+            "null": "",
+            "PFE": "PFE",
+            "PFA": "PFA",
+            "DOCTORANT": "DOCTORANT"
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "documentation",
+            "otherEntityName": "documentation",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "deliverable",
+            "otherEntityName": "deliverable",
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "project",
+            "relationshipName": "tag",
+            "otherEntityName": "tag",
+            "otherEntityField": "title",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "calender",
+            "otherEntityName": "calender",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "project"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "projectType",
+            "fieldType": "ProjectTypes",
+            "fieldValues": "PFE,PFA,DOCTORANT",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateBegining",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateEnding",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170108234846",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "project",
+    "pagination": "no"
+}

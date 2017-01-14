@@ -1,0 +1,77 @@
+<div>
+    <h2 data-translate="projectMicroServicesApp.documentation.home.title">Documentations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="documentation.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="projectMicroServicesApp.documentation.home.createLabel">
+                        Create new Documentation
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="projectMicroServicesApp.documentation.title">Title</span></th>
+                    <th><span data-translate="projectMicroServicesApp.documentation.description">Description</span></th>
+                    <th><span data-translate="projectMicroServicesApp.documentation.file">File</span></th>
+                    <th><span data-translate="projectMicroServicesApp.documentation.tag">Tag</span></th>
+                    <th><span data-translate="projectMicroServicesApp.documentation.project">Project</span></th>
+                    <th><span data-translate="projectMicroServicesApp.documentation.deliverable">Deliverable</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="documentation in vm.documentations track by documentation.id">
+                    <td><a ui-sref="documentation-detail({id:documentation.id})">{{documentation.id}}</a></td>
+                    <td>{{documentation.title}}</td>
+                    <td>{{documentation.description}}</td>
+                    <td>
+                        <a ng-if="documentation.file" ng-click="vm.openFile(documentation.fileContentType, documentation.file)" data-translate="entity.action.open">open</a>
+                        <span ng-if="documentation.file">{{documentation.fileContentType}}, {{vm.byteSize(documentation.file)}}</span>
+                    </td>
+                    <td>
+                        <span ng-repeat="tag in documentation.tags">
+                            <a class="form-control-static" ui-sref="tag-detail({id: tag.id})">{{tag.title}}</a>{{$last ? '' : ', '}}
+                        </span>
+                    </td>
+                    <td>
+                        <a ui-sref="project-detail({id:documentation.project.id})">{{documentation.project.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="deliverable-detail({id:documentation.deliverable.id})">{{documentation.deliverable.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="documentation-detail({id:documentation.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="documentation.edit({id:documentation.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="documentation.delete({id:documentation.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

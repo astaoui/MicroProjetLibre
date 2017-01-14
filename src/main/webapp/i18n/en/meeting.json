@@ -1,0 +1,24 @@
+{
+    "projectMicroServicesApp": {
+        "meeting" : {
+            "home": {
+                "title": "Meetings",
+                "createLabel": "Create a new Meeting",
+                "createOrEditLabel": "Create or edit a Meeting",
+                "search": "Search for Meeting"
+            },
+            "created": "A new Meeting is created with identifier {{ param }}",
+            "updated": "A Meeting is updated with identifier {{ param }}",
+            "deleted": "A Meeting is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Meeting {{ id }}?"
+            },
+            "detail": {
+                "title": "Meeting"
+            },
+            "description": "Description",
+            "date": "Date",
+            "calender": "Calender"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "projectMicroServicesApp": {
+        "documentation" : {
+            "home": {
+                "title": "Documentations",
+                "createLabel": "Créer un nouveau Documentation",
+                "createOrEditLabel": "Créer ou éditer un Documentation",
+                "search": "Recherche pour Documentation"
+            },
+            "created": "Un nouveau Documentation a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Documentation avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Documentation avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Documentation {{ id }} ?"
+            },
+            "detail": {
+                "title": "Documentation"
+            },
+            "title": "Title",
+            "description": "Description",
+            "file": "File",
+            "tag": "Tag",
+            "project": "Project",
+            "deliverable": "Deliverable"
+        }
+    }
+}

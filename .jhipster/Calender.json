@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "project",
+            "otherEntityName": "project",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "calender"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "meeting",
+            "otherEntityName": "meeting",
+            "otherEntityRelationshipName": "calender"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateBegining",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dateEnding",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20170108234848",
+    "entityTableName": "calender",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

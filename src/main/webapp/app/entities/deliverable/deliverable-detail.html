@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="projectMicroServicesApp.deliverable.detail.title">Deliverable</span> {{vm.deliverable.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="projectMicroServicesApp.deliverable.name">Name</span></dt>
+        <dd>
+            <span>{{vm.deliverable.name}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.deliverable.description">Description</span></dt>
+        <dd>
+            <span>{{vm.deliverable.description}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.deliverable.dateBegining">Date Begining</span></dt>
+        <dd>
+            <span>{{vm.deliverable.dateBegining | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.deliverable.dateEnding">Date Ending</span></dt>
+        <dd>
+            <span>{{vm.deliverable.dateEnding | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.deliverable.project">Project</span></dt>
+        <dd>
+            <a ui-sref="project-detail({id:vm.deliverable.project.id})">{{vm.deliverable.project.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" has-authority="ROLE_ADMIN" ui-sref="deliverable-detail.edit({id:vm.deliverable.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

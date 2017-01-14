@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="projectMicroServicesApp.project.detail.title">Project</span> {{vm.project.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="projectMicroServicesApp.project.name">Name</span></dt>
+        <dd>
+            <span>{{vm.project.name}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.project.projectType">Project Type</span></dt>
+        <dd>
+            <span data-translate="{{'projectMicroServicesApp.ProjectTypes.' + vm.project.projectType}}">{{vm.project.projectType}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.project.description">Description</span></dt>
+        <dd>
+            <span>{{vm.project.description}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.project.dateBegining">Date Begining</span></dt>
+        <dd>
+            <span>{{vm.project.dateBegining | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.project.dateEnding">Date Ending</span></dt>
+        <dd>
+            <span>{{vm.project.dateEnding | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.project.tag">Tag</span></dt>
+        <dd>
+            <span ng-repeat="tag in vm.project.tags">
+                <a ui-sref="tag-detail({id: tag.id})">{{tag.title}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span data-translate="projectMicroServicesApp.project.user">User</span></dt>
+        <dd>
+            <span ng-repeat="user in vm.project.users">
+                {{user.login}}{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"  has-authority="ROLE_ADMIN" ui-sref="project-detail.edit({id:vm.project.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
