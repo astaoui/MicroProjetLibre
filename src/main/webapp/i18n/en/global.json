@@ -6,7 +6,7 @@
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Entities",
+                "main": "Project Management",
                 "project": "Project",
                 "deliverable": "Deliverable",
                 "calender": "Calender",
@@ -27,7 +27,7 @@
                 "register": "Register"
             },
             "admin": {
-                "main": "Administration",
+                "main": "Configuration",
                 "userManagement": "User management",
                 "tracker": "User tracker",
                 "metrics": "Metrics",
@@ -88,7 +88,7 @@
     },
     "entity": {
         "action": {
-            "addblob": "Add blob",
+            "addblob": "Add File",
             "addimage": "Add image",
             "back": "Back",
             "cancel": "Cancel",
@@ -127,5 +127,5 @@
         "emailexists": "E-mail is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID"
     },
-    "footer": "This is your footer"
+    "footer": "@ENSA Khouribga"
 }

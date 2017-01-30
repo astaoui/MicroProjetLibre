@@ -2,10 +2,16 @@ package ensa.ql.projetlibre.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import ensa.ql.projetlibre.domain.Calender;
+import ensa.ql.projetlibre.domain.Project;
+import ensa.ql.projetlibre.domain.User;
 import ensa.ql.projetlibre.repository.CalenderRepository;
+import ensa.ql.projetlibre.repository.ProjectRepository;
+import ensa.ql.projetlibre.repository.UserRepository;
+import ensa.ql.projetlibre.security.SecurityUtils;
 import ensa.ql.projetlibre.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +20,10 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Calender.
@@ -28,7 +36,10 @@ public class CalenderResource {
 
     @Inject
     private CalenderRepository calenderRepository;
-
+    @Autowired
+    ProjectRepository projectRepository;
+    @Autowired
+    private UserRepository userRepository;
     /**
      * POST  /calenders : Create a new calender.
      *
@@ -85,8 +96,33 @@ public class CalenderResource {
     @Timed
     public List<Calender> getAllCalenders() {
         log.debug("REST request to get all Calenders");
-        List<Calender> calenders = calenderRepository.findAll();
-        return calenders;
+
+        //-----------------------------
+        String currentUserLogin = SecurityUtils.getCurrentUserLogin();
+        /*System.out.println();
+        System.out.println("==== "+currentUserLogin+" =========");
+        System.out.println();*/
+        List<Project> projects;
+        if (currentUserLogin.equalsIgnoreCase("ADMIN")){
+         //  projects = projectRepository.findAllWithEagerRelationships();
+            List<Calender> calenders = calenderRepository.findAll();
+            return calenders;
+        }else {
+            projects = projectRepository.findAllWithEagerRelationships();
+
+
+
+            Optional<User> oneByLogin = userRepository.findOneByLogin(currentUserLogin);
+            System.out.println(oneByLogin.get().getLogin());
+            projects = projects.stream().filter(project -> project.getUsers().contains(oneByLogin.get())).collect(Collectors.toList());
+
+            //-----------------------------
+            //projectRepository.fin
+            List<Calender> calenders=new ArrayList<>();
+            projects.forEach(project -> calenders.add(project.getCalender()));
+            return calenders;
+        }
+
     }
 
     /**

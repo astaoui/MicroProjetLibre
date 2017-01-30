@@ -28,6 +28,7 @@
             collapseNavbar();
             LoginService.open();
         }
+        
 
         function logout() {
             collapseNavbar();

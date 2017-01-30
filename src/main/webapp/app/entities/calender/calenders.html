@@ -1,7 +1,7 @@
 <div>
     <h2 data-translate="projectMicroServicesApp.calender.home.title">Calenders</h2>
     <jhi-alert></jhi-alert>
-    <div class="container-fluid">
+    <div class="container-fluid" has-authority="ROLE_ADMIN">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
                 <button class="btn btn-primary" ui-sref="calender.new" >
@@ -43,13 +43,13 @@
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
                             </button>
-                            <button type="submit"
+                            <button type="submit" has-authority="ROLE_ADMIN"
                                     ui-sref="calender.edit({id:calender.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
                             </button>
-                            <button type="submit"
+                            <button type="submit" has-authority="ROLE_ADMIN"
                                     ui-sref="calender.delete({id:calender.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>

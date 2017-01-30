@@ -6,12 +6,12 @@
             "home": "Accueil",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
-                "main": "Entités",
-                "project": "Project",
-                "deliverable": "Deliverable",
-                "calender": "Calender",
-                "documentation": "Documentation",
-                "meeting": "Meeting",
+                "main": "Gestion de Projet",
+                "project": "Projets",
+                "deliverable": "Liverables",
+                "calender": "Calendriers",
+                "documentation": "Documents",
+                "meeting": "RDV",
                 "notification": "Notification",
                 "tag": "Tag",
                 "student": "Student",
@@ -27,7 +27,7 @@
                 "register": "Créer un compte"
             },
             "admin": {
-                "main": "Administration",
+                "main": "Configuration",
                 "userManagement": "Gestion des utilisateurs",
                 "tracker": "Suivi des utilisateurs",
                 "metrics": "Métriques",
@@ -88,7 +88,7 @@
     },
     "entity": {
         "action": {
-            "addblob": "Ajouter blob",
+            "addblob": "Ajouter fichier",
             "addimage": "Ajouter image",
             "back": "Retour",
             "cancel": "Annuler",
@@ -127,5 +127,5 @@
         "emailexists": "Email déja utilisé !",
         "idexists": "Une nouvelle entité {{entityName}} ne peut pas avoir d'ID !"
     },
-    "footer": "Ceci est votre pied de page"
+    "footer": "@ENSA Khouribga"
 }

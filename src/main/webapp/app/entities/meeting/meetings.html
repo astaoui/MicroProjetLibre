@@ -21,7 +21,7 @@
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="projectMicroServicesApp.meeting.description">Description</span></th>
                     <th><span data-translate="projectMicroServicesApp.meeting.date">Date</span></th>
-                    <th><span data-translate="projectMicroServicesApp.meeting.calender">Calender</span></th>
+                    <th><span data-translate="projectMicroServicesApp.meeting.calender">Project</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -31,7 +31,7 @@
                     <td>{{meeting.description}}</td>
                     <td>{{meeting.date | date:'medium'}}</td>
                     <td>
-                        <a ui-sref="calender-detail({id:meeting.calender.id})">{{meeting.calender.id}}</a>
+                        <a ui-sref="calender-detail({id:meeting.calender.id})">{{meeting.calender.project.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
